@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
-class MainActivity : AppCompatActivity() {
+class MainActivityCalculator : AppCompatActivity() {
 
     private lateinit var tvDisplay: TextView
     private var current = "0"
