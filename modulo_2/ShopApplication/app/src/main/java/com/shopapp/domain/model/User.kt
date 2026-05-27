@@ -1,4 +1,4 @@
-package com.shopappi.domain.model
+package com.shopapp.domain.model
 
 data class User(
     val id: Int,
