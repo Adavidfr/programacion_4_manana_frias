@@ -1,4 +1,3 @@
-// presentation/ui/public/product/ProductDetailScreen.kt
 package com.shopapp.presentation.ui.uipublic.product
 
 import androidx.compose.foundation.background
@@ -26,7 +25,6 @@ import com.shopapp.presentation.components.*
 import com.shopapp.presentation.viewmodel.CartViewModel
 import com.shopapp.theme.*
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -319,7 +317,7 @@ private fun ProductDetailContent(
                 // Resetear el estado "añadido"
                 LaunchedEffect(added) {
                     if (added) {
-                        delay(2_000)
+                        kotlinx.coroutines.delay(2_000)
                         added = false
                     }
                 }

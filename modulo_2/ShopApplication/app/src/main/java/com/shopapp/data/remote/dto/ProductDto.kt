@@ -1,3 +1,4 @@
+// data/remote/dto/ProductDto.kt
 package com.shopapp.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
