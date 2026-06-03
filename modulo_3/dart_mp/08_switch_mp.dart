@@ -1,6 +1,7 @@
 void main() {
   String rolEmpleado = 'DEV';
 
+  // SWITCH TRADICIONAL
   switch (rolEmpleado) {
     case 'DEV':
       print('Desarrollador de Software');
@@ -14,7 +15,7 @@ void main() {
       print('Puesto administrativo general');
   }
 
-  // Switch expresión — asigna el rol y su salario sugerido
+  // SWITCH EXPRESSION
   String puestoCodigo = 'PM';
 
   String descripcionPuesto = switch (puestoCodigo) {
@@ -27,9 +28,9 @@ void main() {
 
   print(descripcionPuesto);
 
+  // MÚLTIPLES VALORES CON ||
   int codigoDepto = 102;
 
-  // Múltiples valores en una rama con ||
   String direccionArea = switch (codigoDepto) {
     101 || 102 || 103 => 'Dirección de Tecnología y Sistemas',
     201 || 202        => 'Dirección de Finanzas y Administración',
@@ -39,7 +40,7 @@ void main() {
 
   print(direccionArea);
 
-  // Guards — condición de antigüedad
+  // GUARDS (WHEN)
   double aniosAntiguedad = 6.5;
 
   String categoriaBono = switch (aniosAntiguedad) {
@@ -52,20 +53,28 @@ void main() {
 
   print(categoriaBono);
 
-  // switch puede verificar el TIPO del registro de incidencia
-  Object reporteIncidencia = {'tipo': 'Retardo', 'minutos': 15, 'empleado': 'Ana Gómez'};
+  // PATTERN MATCHING CON TIPOS
+  Object reporteIncidencia = {
+    'tipo': 'Retardo',
+    'minutos': 15,
+    'empleado': 'Ana Gómez'
+  };
 
   String resultadoIncidencia = switch (reporteIncidencia) {
     Map<String, dynamic> m when m['tipo'] == 'Falta' =>
-        'Reporte Grave: Falta de \${m['empleado']}',
+      'Reporte Grave: Falta de ${m['empleado']}',
+
     Map<String, dynamic> m =>
-        'Incidencia menor: \${m['tipo']} de \${m['minutos']} minutos para \${m['empleado']}',
+      'Incidencia menor: ${m['tipo']} de ${m['minutos']} minutos para ${m['empleado']}',
+
     List<dynamic> lista =>
-        'Múltiples incidencias a procesar: \${lista.length}',
+      'Múltiples incidencias a procesar: ${lista.length}',
+
     String texto =>
-        'Comentarios adicionales: \$texto',
+      'Comentarios adicionales: $texto',
+
     _ =>
-        'Formato de reporte inválido',
+      'Formato de reporte inválido',
   };
 
   print(resultadoIncidencia);

@@ -5,7 +5,8 @@ void main() {
   double tarifa = double.parse(stdin.readLineSync()!);
 
   print('=== Proyección de Pago por Horas de Trabajo ===');
+
   for (int i = 1; i <= 10; i++) {
-    print('\$i hora(s) = \\$\${tarifa * i}');
+    print('$i hora(s) = \$${tarifa * i}');
   }
 }
