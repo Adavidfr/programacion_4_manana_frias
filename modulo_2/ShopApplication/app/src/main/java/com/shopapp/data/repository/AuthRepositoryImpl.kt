@@ -60,24 +60,14 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun isLoggedIn(): Boolean =
         !tokenDataStore.getAccessToken().isNullOrBlank()
 
-    // Extrae el mensaje de error legible del JSON de Django.
-    // Django puede devolver strings o listas: {"detail": "..."} o {"non_field_errors": ["..."]}
+    // Extrae el mensaje de error legible del JSON de Django
     private fun parseErrorMessage(body: String, code: Int): String {
         return try {
             val map = com.google.gson.Gson()
                 .fromJson(body, Map::class.java)
-
-            fun Any?.extractText(): String? = when (this) {
-                null           -> null
-                is List<*>     -> (this as List<*>).filterNotNull()
-                    .takeIf { it.isNotEmpty() }
-                    ?.joinToString(", ") { it.toString() }
-                else           -> toString().takeIf { it.isNotBlank() }
-            }
-
-            map["detail"].extractText()
-                ?: map["non_field_errors"].extractText()
-                ?: map.values.firstOrNull { it != null }.extractText()
+            map["detail"]?.toString()
+                ?: map["non_field_errors"]?.toString()
+                ?: map.values.firstOrNull()?.toString()
                 ?: "Error $code"
         } catch (e: Exception) {
             "Error $code"

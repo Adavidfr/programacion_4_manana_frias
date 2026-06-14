@@ -4,7 +4,8 @@ package com.shopapp.di
 import com.shopapp.BuildConfig
 import com.shopapp.data.local.TokenDataStore
 import com.shopapp.data.remote.api.*
-import com.shopapp.data.remote.interceptor.*
+import com.shopapp.data.remote.interceptor.AuthInterceptor
+import com.shopapp.data.remote.interceptor.BearerTokenInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

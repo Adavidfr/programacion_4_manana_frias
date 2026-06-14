@@ -2,8 +2,9 @@
 package com.shopapp.data.remote.api
 
 import com.shopapp.data.remote.dto.*
-import retrofit2.http.*
 import okhttp3.MultipartBody
+import retrofit2.Response
+import retrofit2.http.*
 
 interface UserApi {
     @GET("users/")
@@ -12,35 +13,45 @@ interface UserApi {
         @Query("is_staff")  isStaff:  Boolean? = null,
         @Query("is_active") isActive: Boolean? = null,
         @Query("page")      page:     Int?     = null,
-    ): retrofit2.Response<PaginatedDto<UserDto>>
+    ): Response<PaginatedDto<UserDto>>
 
     @GET("users/{id}/")
-    suspend fun getUser(@Path("id") id: Int): retrofit2.Response<UserDto>
+    suspend fun getUser(@Path("id") id: Int): Response<UserDto>
 
     @POST("users/")
-    suspend fun createUser(@Body body: UserRequestDto): retrofit2.Response<UserDto>
+    suspend fun createUser(@Body body: UserRequestDto): Response<UserDto>
 
     @PATCH("users/{id}/")
     suspend fun updateUser(
         @Path("id") id: Int,
         @Body body: UserRequestDto,
-    ): retrofit2.Response<UserDto>
+    ): Response<UserDto>
 
     @DELETE("users/{id}/")
-    suspend fun deleteUser(@Path("id") id: Int): retrofit2.Response<Unit>
+    suspend fun deleteUser(@Path("id") id: Int): Response<Unit>
 
     @POST("users/{id}/toggle-active/")
-    suspend fun toggleActive(@Path("id") id: Int): retrofit2.Response<ToggleActiveResponseDto>
+    suspend fun toggleActive(@Path("id") id: Int): Response<ToggleActiveResponseDto>
 
     @GET("users/profile/")
-    suspend fun getProfile(): retrofit2.Response<UserDto>
+    suspend fun getProfile(): Response<UserDto>
 
     @GET("users/stats/")
-    suspend fun getStats(): retrofit2.Response<UserStatsDto>
+    suspend fun getStats(): Response<UserStatsDto>
+
+    @POST("auth/password-reset/")
+    suspend fun requestPasswordReset(
+        @Body body: PasswordResetRequestDto,
+    ): Response<MessageDto>
+
+    @POST("auth/password-reset/confirm/")
+    suspend fun confirmPasswordReset(
+        @Body body: PasswordResetConfirmDto,
+    ): Response<MessageDto>
 
     @Multipart
     @PATCH("users/profile/")
     suspend fun uploadAvatar(
         @Part avatar: MultipartBody.Part,
-    ): retrofit2.Response<UserDto>
+    ): Response<UserDto>
 }

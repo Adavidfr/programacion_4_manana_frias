@@ -1,3 +1,4 @@
+// presentation/ui/public/product/ProductDetailScreen.kt
 package com.shopapp.presentation.ui.uipublic.product
 
 import androidx.compose.foundation.background
