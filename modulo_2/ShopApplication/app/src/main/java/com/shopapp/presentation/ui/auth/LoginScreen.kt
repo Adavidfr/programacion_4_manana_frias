@@ -21,10 +21,10 @@ import com.shopapp.theme.*
 
 @Composable
 fun LoginScreen(
-    onLoginSuccess: (isStaff: Boolean) -> Unit,
+    onLoginSuccess:       (isStaff: Boolean) -> Unit,
     onNavigateToRegister: () -> Unit,
-    viewModel: AuthViewModel = hiltViewModel(),
-    onForgotPassword: () -> Unit,
+    onForgotPassword:     () -> Unit = {},   // ← nuevo parámetro
+    viewModel:            AuthViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
