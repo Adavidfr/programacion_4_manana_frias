@@ -1,4 +1,4 @@
-fun main() {
+   fun main() {
     
     //Readline
     println("Escribe tu nombre: ")
@@ -22,6 +22,3 @@ fun main() {
     *@return un saludo personalizado
     */
 } 
-
-
-
