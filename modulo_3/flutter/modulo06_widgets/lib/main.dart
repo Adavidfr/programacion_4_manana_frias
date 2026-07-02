@@ -5,6 +5,7 @@ import 'widgets/etiqueta.dart';
 import 'widgets/servicio_estado.dart';
 import 'widgets/contador_limitado.dart';
 import 'widgets/reloj.dart';
+import 'widgets/catalogo_botones.dart';
 
 // ┌──────────────────────────────────────────────────────────────────┐
 // │  Cambia este número y guarda (Ctrl+S) para navegar entre pasos. │
@@ -39,6 +40,7 @@ void main() => runApp(MaterialApp(
         ),
       ),
     ),
+    4 => const CatalogoBotones(),
     5 => Scaffold(                               // Paso 3b
       body: Center(
         child: Column(
