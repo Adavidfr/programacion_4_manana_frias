@@ -1,36 +1,33 @@
 import 'dart:io';
 
 void main() {
-  int cajas = -1;
-  int totalCajas = 0;
-  int totalEmpleados = 0;
+  int evaluaciones = -1;
+  int totalEvaluaciones = 0;
+  int totalReclutadores = 0;
 
-  while (cajas != 0) {
-    print("Ingrese la cantidad de cajas empacadas (0 para terminar): ");
-    cajas = int.parse(stdin.readLineSync()!);
+  while (evaluaciones != 0) {
+    print("Ingrese la cantidad de evaluaciones de desempeño realizadas por el reclutador (0 para terminar): ");
+    evaluaciones = int.parse(stdin.readLineSync()!);
 
-    if (cajas == 0) {
+    if (evaluaciones == 0) {
       break;
     }
 
-    if (cajas <= 20) {
+    if (evaluaciones <= 20) {
       print("Rendimiento bajo");
-
     } 
-    else if (cajas <= 50) {
+    else if (evaluaciones <= 50) {
       print("Rendimiento normal");
-  
     } 
     else {
       print("Rendimiento excelente");
-      
     }
 
-    totalEmpleados +=1;
-    totalCajas += cajas;
+    totalReclutadores += 1;
+    totalEvaluaciones += evaluaciones;
   }
 
-  print("Total de cajas empacadas: $totalCajas");
-  print("Total de  empleados: $totalEmpleados");
-  print("Promedio: ${totalCajas / totalEmpleados }");
+  print("Total de evaluaciones realizadas: $totalEvaluaciones");
+  print("Total de reclutadores: $totalReclutadores");
+  print("Promedio: ${totalEvaluaciones / totalReclutadores}");
 }

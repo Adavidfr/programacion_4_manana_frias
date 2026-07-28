@@ -2,28 +2,28 @@ import 'dart:io';
 
 void main() {
   // while — comprueba la condición ANTES de ejecutar
-  int paquetes = 0;
-  int buffer   = 1024;  // bytes disponibles
+  int becasOtorgadas = 0;
+  int presupuestoCapacitacion = 1024;  // dólares disponibles para capacitaciones
 
-  while (buffer > 0) {
-    final tamano = buffer > 256 ? 256 : buffer;
-    paquetes++;
-    buffer -= tamano;
-    print('Paquete $paquetes: $tamano bytes (restante: $buffer)');
+  while (presupuestoCapacitacion > 0) {
+    final montoAsignado = presupuestoCapacitacion > 256 ? 256 : presupuestoCapacitacion;
+    becasOtorgadas++;
+    presupuestoCapacitacion -= montoAsignado;
+    print('Empleado becado $becasOtorgadas: \$$montoAsignado USD (presupuesto restante: \$$presupuestoCapacitacion USD)');
   }
 
   // do-while — ejecuta AL MENOS UNA VEZ antes de comprobar
-  int reintentos = 0;
-  bool conexionEstablecida = false;
+  int intentosFirma = 0;
+  bool contratoFirmado = false;
 
   do {
-    reintentos++;
-    print('Intento de conexión #$reintentos...');
-    // Simular que conecta en el 3er intento
-    if (reintentos == 3) conexionEstablecida = true;
-  } while (!conexionEstablecida && reintentos < 5);
+    intentosFirma++;
+    print('Intento de validación de firma digital #$intentosFirma...');
+    // Simular que el contrato se firma digitalmente en el 3er intento
+    if (intentosFirma == 3) contratoFirmado = true;
+  } while (!contratoFirmado && intentosFirma < 5);
 
-  print(conexionEstablecida
-      ? 'Conectado tras $reintentos intentos'
-      : 'No se pudo conectar');
+  print(contratoFirmado
+      ? 'Contrato firmado exitosamente tras $intentosFirma intento(s)'
+      : 'No se pudo validar la firma del contrato');
 }

@@ -1,40 +1,40 @@
 void main() {
   // var — tipo inferido (como val en Kotlin)
-  var nombre = 'Ana';           // String
-  var edad   = 28;              // int
-  var precio = 89.99;           // double
-  var activo = true;            // bool
+  var nombreEmpleado = 'Ana';           // String
+  var edad           = 28;              // int
+  var salarioBase    = 2500.50;         // double
+  var activo         = true;            // bool
 
   // Tipo explícito
   String apellido = 'García';
-  int    stock    = 100;
-  double pi       = 3.14159;
-  bool   visible  = false;
+  int    vacacionesDisponibles = 15;
+  double tasaRetencion = 0.15;
+  bool   esGerente     = false;
 
   // final — no se puede reasignar (como val en Kotlin)
-  final ciudad = 'Madrid';
-  // ciudad = 'Barcelona';  // ERROR — final no se puede reasignar
+  final departamento = 'Recursos Humanos';
+  // departamento = 'Tecnología';  // ERROR — final no se puede reasignar
 
   // const — constante en tiempo de compilación (como const en Kotlin)
-  const gravedad = 9.8;
-  const pi2      = 3.14159;
+  const salarioMinimoLegal = 1300.0;
+  const horasJornadaSemanal = 40;
 
   // Diferencia clave: final vs const
-  final ahora  = DateTime.now();   // OK — se evalúa en runtime
-  // const ahora = DateTime.now(); // ERROR — DateTime.now() no es constante de compilación
+  final fechaContratacion = DateTime.now();   // OK — se evalúa en runtime
+  // const fechaContratacion = DateTime.now(); // ERROR — DateTime.now() no es constante de compilación
 
-  print('$nombre $apellido tiene $edad años en $ciudad');
+  print('$nombreEmpleado $apellido tiene $edad años en el departamento de $departamento');
   
   // var — mutable, tipo inferido
-var contador = 0;
-contador = 1;          // OK
+  var contadorProcesos = 0;
+  contadorProcesos = 1;          // OK
 
-// final — inmutable referencia, evaluado en runtime
-final lista = [1, 2, 3];
-lista.add(4);          // OK — la referencia es final, no el contenido
-// lista = [5, 6];     // ERROR — no se puede reasignar la referencia
+  // final — inmutable referencia, evaluado en runtime
+  final candidatos = ['Carlos', 'María', 'Luis'];
+  candidatos.add('Sofia');       // OK — la referencia es final, no el contenido
+  // candidatos = ['Pedro', 'Ana']; // ERROR — no se puede reasignar la referencia
 
-// const — inmutable profundo, evaluado en compilación
-const colores = ['rojo', 'azul'];
-// colores.add('verde'); // ERROR — lista const es completamente inmutable
+  // const — inmutable profundo, evaluado en compilación
+  const habilidadesRequeridas = ['Liderazgo', 'Trabajo en equipo'];
+  // habilidadesRequeridas.add('Comunicación'); // ERROR — lista const es completamente inmutable
 }

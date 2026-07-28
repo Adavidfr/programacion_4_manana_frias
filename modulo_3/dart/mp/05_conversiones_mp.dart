@@ -1,30 +1,31 @@
 void main() {
   // Conversiones numéricas
-  int    entero  = 42;
-  double decimal = entero.toDouble();   // 42.0
-  String texto   = entero.toString();   // "42"
+  int    horasTrabajadas = 40;
+  double horasDecimal    = horasTrabajadas.toDouble();   // 40.0
+  String horasTexto      = horasTrabajadas.toString();   // "40"
 
   // String → número
-  int    num1 = int.parse('123');       // 123
-  double num2 = double.parse('3.14');   // 3.14
+  int    diasHabiles  = int.parse('160');         // 160 horas mensuales
+  double salarioBase  = double.parse('2500.50');  // 2500.50
 
   // Conversión segura (no lanza excepción)
-  int?    num3 = int.tryParse('abc');   // null
-  double? num4 = double.tryParse('99'); // 99.0
+  int?    codigoInvalido  = int.tryParse('abc');   // null
+  double? bonoRendimiento = double.tryParse('99'); // 99.0
 
   // Verificar tipo con is (como en Kotlin)
-  Object valor = 'texto';
-  if (valor is String) {
-    print(valor.length);  // smart cast — ya es String
+  Object datosEmpleado = 'Contrato Indefinido';
+  if (datosEmpleado is String) {
+    print(datosEmpleado.length);  // smart cast — ya es String
   }
 
   // Cast explícito con as
-  Object obj = 'Hola';
-  String str = obj as String;
+  Object obj = 'Departamento de RRHH';
+  String departamento = obj as String;
+  print(departamento);
 
   // Comprobar nulabilidad
-  String? nullable = null;
-  int longitud = nullable?.length ?? 0;
+  String? observacionDesempeno = null;
+  int longitud = observacionDesempeno?.length ?? 0;
   print(longitud);  // 0
 
   // Números especiales

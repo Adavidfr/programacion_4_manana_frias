@@ -1,84 +1,82 @@
 void main() {
-  String codigoHttp = '404';
+  String codigoDepartamento = '404';
 
-  switch (codigoHttp) {
-    case '200':
-      print('OK');
+  switch (codigoDepartamento) {
+    case '101':
+      print('Recursos Humanos');
+    case '102':
+      print('Tecnología');
     case '201':
-      print('Creado');
-    case '400':
-      print('Petición incorrecta');
-    case '401':
-      print('No autorizado');
+      print('Finanzas');
+    case '301':
+      print('Ventas');
     case '404':
-      print('No encontrado');
+      print('Departamento no encontrado');
     case '500':
-      print('Error del servidor');
+      print('Error del sistema de RRHH');
     default:
       print('Código desconocido');
   }
 
   // Switch expresión — asigna el resultado a una variable
-  String codigoHttp = '404';
+  String codigoPuesto = '404';
 
-  String descripcion = switch (codigoHttp) {
-    '200' => 'OK — solicitud exitosa',
-    '201' => 'Created — recurso creado',
-    '204' => 'No Content — sin contenido',
-    '400' => 'Bad Request — datos inválidos',
-    '401' => 'Unauthorized — sin autenticación',
-    '403' => 'Forbidden — sin permiso',
-    '404' => 'Not Found — recurso no existe',
-    '500' => 'Internal Server Error',
-    '503' => 'Service Unavailable',
-    _     => 'Código HTTP desconocido',  // _ es el caso por defecto
+  String descripcionPuesto = switch (codigoPuesto) {
+    '101' => 'HR-01 — Reclutador Senior',
+    '102' => 'TECH-01 — Desarrollador Software',
+    '103' => 'TECH-02 — Administrador de Sistemas',
+    '201' => 'FIN-01 — Contador General',
+    '202' => 'FIN-02 — Analista Financiero',
+    '301' => 'MKT-01 — Especialista en Marketing',
+    '404' => 'Puesto no encontrado — vacante sin asignar',
+    '500' => 'Error de servidor de datos',
+    '503' => 'Módulo de contratación no disponible',
+    _     => 'Código de puesto desconocido',  // _ es el caso por defecto
   };
 
-  print(descripcion);  // Not Found — recurso no existe
+  print(descripcionPuesto);  // Puesto no encontrado — vacante sin asignar
 
-  int codigoNumerico = 404;
+  int codigoNivel = 404;
 
   // Múltiples valores en una rama con ||
-  String categoria = switch (codigoNumerico) {
-    200 || 201 || 204       => 'Éxito (2xx)',
-    301 || 302 || 307       => 'Redirección (3xx)',
-    400 || 401 || 403 || 404 => 'Error del cliente (4xx)',
-    500 || 502 || 503       => 'Error del servidor (5xx)',
-    _                       => 'Desconocido',
+  String categoriaLaboral = switch (codigoNivel) {
+    101 || 102 || 104       => 'Nivel Operativo (1xx)',
+    201 || 202 || 207       => 'Nivel Técnico / Supervisión (2xx)',
+    301 || 302 || 303 || 304 => 'Nivel Gerencial / Directivo (3xx)',
+    400 || 401 || 403       => 'Contratista / Temporal (4xx)',
+    _                       => 'Categoría Desconocida',
   };
 
-  print(categoria);  // Error del cliente (4xx)
+  print(categoriaLaboral);  // Contratista / Temporal (4xx)
 
   // Guards — condición adicional con 'when'
-  double temperatura = 39.2;
+  double salarioBase = 3900.0;
 
-  String alerta = switch (temperatura) {
-    double t when t >= 40.0 => '🚨 CRÍTICO — llame a emergencias',
-    double t when t >= 38.5 => '🔴 FIEBRE ALTA — consulte médico',
-    double t when t >= 37.5 => '🟡 FIEBRE LEVE — descanse',
-    double t when t >= 36.0 => '🟢 NORMAL',
-    _                       => '🔵 HIPOTERMIA — abrígese',
+  String nivelSalarial = switch (salarioBase) {
+    double s when s >= 5000.0 => '🚨 DIRECTIVO — aprobación de junta requerida',
+    double s when s >= 3500.0 => '🔴 SENIOR — banda salarial alta',
+    double s when s >= 2000.0 => '🟡 SEMISENIOR — banda salarial media',
+    double s when s >= 1300.0 => '🟢 JUNIOR — salario base legal',
+    _                         => '🔵 BAJO — requiere revisión de salario mínimo',
   };
 
-  print(alerta);  // 🔴 FIEBRE ALTA — consulte médico
+  print(nivelSalarial);  // 🔴 SENIOR — banda salarial alta
 
   // switch puede verificar el TIPO del valor
-  Object respuestaApi = {'id': 1, 'nombre': 'Teclado', 'precio': 89.99};
+  Object respuestaSistemaRRHH = {'id': 101, 'nombre': 'Carlos Ruiz', 'salario': 2800.00};
 
-  String resultado = switch (respuestaApi) {
+  String resultado = switch (respuestaSistemaRRHH) {
     Map<String, dynamic> m when m.containsKey('error') =>
-        'Error: ${m['error']}',
+        'Error de RRHH: ${m['error']}',
     Map<String, dynamic> m =>
-        'Producto: ${m['nombre']} — \$${m['precio']}',
+        'Empleado: ${m['nombre']} — \$${m['salario']}',
     List<dynamic> lista =>
-        '${lista.length} elementos en la lista',
+        '${lista.length} postulantes en el proceso de selección',
     String texto =>
-        'Texto recibido: $texto',
+        'Informe de RRHH: $texto',
     _ =>
-        'Respuesta desconocida',
+        'Respuesta del sistema desconocida',
   };
 
-  print(resultado);  // Producto: Teclado — $89.99
+  print(resultado);  // Empleado: Carlos Ruiz — $2800.0
 }
-
-

@@ -1,10 +1,10 @@
 import 'dart:io';
-void main() {
-  print ('Ingrese tu calificacion:');
-  int numero = int.parse(stdin.readLineSync()!);
-  if (numero >= 7) {
-    print('Aprobado');
-  } else if (numero < 7)
-    print('Reprobado');
 
+void main() {
+  print('Ingrese la calificación de evaluación de desempeño del empleado:');
+  int calificacion = int.parse(stdin.readLineSync()!);
+  if (calificacion >= 7) {
+    print('Desempeño Aprobado');
+  } else if (calificacion < 7)
+    print('Desempeño Insuficiente');
 }

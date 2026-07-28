@@ -1,21 +1,17 @@
 import 'dart:io';
 
 void main() {
-  print('Ingrese su nombre:');  // Imprime sin salto de línea
+  print('Ingrese el nombre del empleado:');  // Imprime mensaje
 
-  String? nombre = stdin.readLineSync();   // Lee una línea de entrada
+  String? nombreEmpleado = stdin.readLineSync();   // Lee una línea de entrada
 
-  print('Hola, $nombre');      
+  print('Empleado registrado: $nombreEmpleado');      
 
-  print('Ingrese su numero entero:');
-  int numero = int.parse(stdin.readLineSync()!);  
-  print('numero: $numero');
+  print('Ingrese los días trabajados (entero):');
+  int diasTrabajados = int.parse(stdin.readLineSync()!);  
+  print('Días trabajados: $diasTrabajados');
 
-  print('Ingrese un decimal:')
-  double valor = double.parse(stdin.readLineSync()!);
-  print('valor: $valor');
-
-  
-
-
+  print('Ingrese el salario por día (decimal):');
+  double salarioPorDia = double.parse(stdin.readLineSync()!);
+  print('Salario por día: $salarioPorDia');
 }

@@ -1,25 +1,25 @@
 void main() {
   // Forma básica
-  int temperatura = 38;
+  int horasTrabajadas = 48;
 
-  if (temperatura > 37.5) {
-    print('Fiebre');
-  } else if (temperatura > 36) {
-    print('Normal');
+  if (horasTrabajadas > 45) {
+    print('Sobrecarga laboral');
+  } else if (horasTrabajadas >= 40) {
+    print('Jornada normal');
   } else {
-    print('Hipotermia');
+    print('Jornada parcial');
   }
 
   // Operador ternario — para decisiones de una línea
   // condición ? valorSiVerdadero : valorSiFalso
-  String estado = temperatura > 37.5 ? 'Con fiebre' : 'Sin fiebre';
+  String estado = horasTrabajadas > 45 ? 'Con sobrecarga' : 'Sin sobrecarga';
   print(estado);
 
   // null-aware con ternario
-  String? ciudad;
-  String display = ciudad != null ? ciudad.toUpperCase() : 'Sin ciudad';
+  String? departamento;
+  String display = departamento != null ? departamento.toUpperCase() : 'Sin departamento';
 
   // Forma más concisa con Elvis
-  String display2 = ciudad?.toUpperCase() ?? 'Sin ciudad';
-  print(display2);  // Sin ciudad
+  String display2 = departamento?.toUpperCase() ?? 'Sin departamento';
+  print(display2);  // Sin departamento
 }

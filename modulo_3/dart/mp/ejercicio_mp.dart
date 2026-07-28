@@ -1,25 +1,25 @@
 import 'dart:io';
 
 void main() {
-  int piezas = -1;
+  int contrataciones = -1;
   int total = 0;
 
-  while (piezas != 0) {
-    print("Ingrese la cantidad de piezas producidas (0 para terminar): ");
-    piezas = int.parse(stdin.readLineSync()!);
+  while (contrataciones != 0) {
+    print("Ingrese la cantidad de contrataciones realizadas por el reclutador (0 para terminar): ");
+    contrataciones = int.parse(stdin.readLineSync()!);
 
-    if (piezas == 0) {
+    if (contrataciones == 0) {
       break;
     }
 
-    if (piezas < 50) {
-      print("Producción baja");
+    if (contrataciones < 5) {
+      print("Rendimiento de contratación bajo");
     } else {
-      print("Producción adecuada");
+      print("Rendimiento de contratación adecuado");
     }
 
-    total += piezas;
+    total += contrataciones;
   }
 
-  print("Total de piezas producidas: $total");
+  print("Total de contrataciones realizadas: $total");
 }
